@@ -1,0 +1,7 @@
+# Mac Development
+.DS_Store
+.kinvey
+
+node_modules
+npm-debug.log
+output.log

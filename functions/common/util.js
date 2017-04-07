@@ -1,0 +1,2 @@
+//Common code that is used across custom endpoints and Business Logic hooks can go in common js files here
+//Write the functions once, export their signature and require their code in classes that need them=.

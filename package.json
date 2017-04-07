@@ -1,0 +1,13 @@
+{
+  "name": "training-flex",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon --exec npm start"
+  },
+  "dependencies": {
+    "kinvey-flex-sdk": "~2.0.3",
+    "mysql": "~2.13.0"
+  }
+}
