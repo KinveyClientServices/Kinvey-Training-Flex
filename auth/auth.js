@@ -3,6 +3,4 @@
 2. A hardcoded token back to Kinvey is acceptable for training purposes
 */
 module.exports.dummyAuth = function(context, complete, modules) {
-	console.log("Authentication Context: " + JSON.stringify(context));
-	complete().setToken({"authToken":"sayfriendandenter"}).ok().next();
 };
