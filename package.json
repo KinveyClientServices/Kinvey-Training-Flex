@@ -1,10 +1,12 @@
 {
   "name": "training-flex",
-  "version": "0.0.0",
+  "version": "0.0.4",
   "private": true,
   "scripts": {
     "start": "node .",
-    "dev": "nodemon --exec npm start"
+    "dev": "nodemon --exec npm start",
+    "deploy": "npm version --no-git-tag-version patch && kinvey deploy",
+    "status": "kinvey job && kinvey status"
   },
   "dependencies": {
     "kinvey-flex-sdk": "~2.0.3",
