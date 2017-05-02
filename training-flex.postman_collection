@@ -1,0 +1,344 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Flex",
+		"_postman_id": "bf7f1b85-bd15-9865-8e59-7e4617440f6c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Survey Service Object",
+			"description": "",
+			"item": [
+				{
+					"name": "Surveys list",
+					"request": {
+						"url": "http://localhost:10001/Syncpoints",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Surveys by id",
+					"request": {
+						"url": "http://localhost:10001/Surveys/3",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Title\": \"Create\",\n  \"Question\": \"Test?\",\n  \"_id\": \"6\",\n  \"_kmd\": {\n    \"ect\": \"2017-01-09T23:59:05.000Z\",\n    \"lmt\": \"2017-01-09T23:59:05.000Z\"\n  },\n  \"_acl\": {}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Surveys create",
+					"request": {
+						"url": "http://localhost:10001/Surveys",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Title\": \"Create\",\n  \"Question\": \"Test?\",\n  \"_kmd\": {\n    \"ect\": \"2017-01-09T23:59:05.000Z\",\n    \"lmt\": \"2017-01-09T23:59:05.000Z\"\n  },\n  \"_acl\": {}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Surveys _count",
+					"request": {
+						"url": "http://localhost:10001/Surveys/_count",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Surveys delete by id",
+					"request": {
+						"url": "http://localhost:10001/Surveys/5",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Title\": \"Create\",\n  \"Question\": \"Test?\",\n  \"_id\": \"6\",\n  \"_kmd\": {\n    \"ect\": \"2017-01-09T23:59:05.000Z\",\n    \"lmt\": \"2017-01-09T23:59:05.000Z\"\n  },\n  \"_acl\": {}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Surveys update",
+					"request": {
+						"url": "http://localhost:10001/Surveys/5",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Title\": \"Create\",\n  \"Question\": \"Test?UPDATE\",\n  \"_id\":5,\n  \"_kmd\": {\n    \"ect\": \"2017-01-09T23:59:05.000Z\",\n    \"lmt\": \"2017-01-09T23:59:05.000Z\"\n  },\n  \"_acl\": {}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Datastore Save",
+			"request": {
+				"url": "http://localhost:10001/_flexFunctions/savedata",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-App-Metadata",
+						"value": "{\"_id\":\"kid_Wy7NMiwaTx\",\"appsecret\":\"18e581bc9c7046a5b1b20ae838105126\",\"mastersecret\":\"207d5e79c631427ea12cd3e3b63be5b8\",\"baasUrl\":\"https://baas.kinvey.com\"}",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-Original-Request-Headers",
+						"value": "{\"x-kinvey-api-version\":\"3\",\"authorization\",\"Kinvey d0116a48-7996-4cfa-9ec9-321f2d08f49d.z6nySgzTkkLItn1SWjsD9ihrUDsfh6fMX6qKLE/qZZI=\",\"x-kinvey-client-app-version\":\"0.1.2\"}",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-Username",
+						"value": "austin",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-User-Id",
+						"value": "587fe6132775caa763ced983",
+						"description": ""
+					},
+					{
+						"key": "X-Auth-Key",
+						"value": "ugg1234",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Auth",
+			"request": {
+				"url": "http://localhost:10001/_auth/dummyAuth",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-App-Metadata",
+						"value": "{\"_id\":\"kid_S196Q_Ojg\",\"appsecret\":\"2e2294e3d5834c5a9461b165e55c98a1\",\"mastersecret\":\"f62f6dfd8c95420891f980164b68be76\",\"baasUrl\":\"https://baas.kinvey.com\"}",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-Original-Request-Headers",
+						"value": "{\"x-kinvey-api-version\":\"3\",\"authorization\",\"Kinvey d0116a48-7996-4cfa-9ec9-321f2d08f49d.z6nySgzTkkLItn1SWjsD9ihrUDsfh6fMX6qKLE/qZZI=\",\"x-kinvey-client-app-version\":\"0.1.2\"}",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-Username",
+						"value": "austin",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-User-Id",
+						"value": "58e28d23cf5435a0448590d2",
+						"description": ""
+					},
+					{
+						"key": "X-Auth-Key",
+						"value": "ugg1234",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"booger\", \"password\":\"beard\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Broken Timeout Endpoint",
+			"request": {
+				"url": "http://localhost:10001/_flexFunctions/brokenTimeout",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-App-Metadata",
+						"value": "{\"_id\":\"kid_S196Q_Ojg\",\"appsecret\":\"2e2294e3d5834c5a9461b165e55c98a1\",\"mastersecret\":\"f62f6dfd8c95420891f980164b68be76\",\"baasUrl\":\"https://baas.kinvey.com\"}",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-Original-Request-Headers",
+						"value": "{\"x-kinvey-api-version\":\"3\",\"authorization\",\"Kinvey d0116a48-7996-4cfa-9ec9-321f2d08f49d.z6nySgzTkkLItn1SWjsD9ihrUDsfh6fMX6qKLE/qZZI=\",\"x-kinvey-client-app-version\":\"0.1.2\"}",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-Username",
+						"value": "austin",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-User-Id",
+						"value": "58e28d23cf5435a0448590d2",
+						"description": ""
+					},
+					{
+						"key": "X-Auth-Key",
+						"value": "ugg1234",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Foo2\":\"sudo2\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Broken Endpoint",
+			"request": {
+				"url": "http://localhost:10001/_flexFunctions/broken",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-App-Metadata",
+						"value": "{\"_id\":\"kid_S196Q_Ojg\",\"appsecret\":\"2e2294e3d5834c5a9461b165e55c98a1\",\"mastersecret\":\"f62f6dfd8c95420891f980164b68be76\",\"baasUrl\":\"https://baas.kinvey.com\"}",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-Original-Request-Headers",
+						"value": "{\"x-kinvey-api-version\":\"3\",\"authorization\",\"Kinvey d0116a48-7996-4cfa-9ec9-321f2d08f49d.z6nySgzTkkLItn1SWjsD9ihrUDsfh6fMX6qKLE/qZZI=\",\"x-kinvey-client-app-version\":\"0.1.2\"}",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-Username",
+						"value": "austin",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-User-Id",
+						"value": "58e28d23cf5435a0448590d2",
+						"description": ""
+					},
+					{
+						"key": "X-Auth-Key",
+						"value": "ugg1234",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Foo2\":\"sudo2\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Echo",
+			"request": {
+				"url": "http://localhost:10001/_flexFunctions/echo",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-App-Metadata",
+						"value": "{\"_id\":\"kid_S196Q_Ojg\",\"appsecret\":\"2e2294e3d5834c5a9461b165e55c98a1\",\"mastersecret\":\"f62f6dfd8c95420891f980164b68be76\",\"baasUrl\":\"https://baas.kinvey.com\"}",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-Original-Request-Headers",
+						"value": "{\"x-kinvey-api-version\":\"3\",\"authorization\",\"Kinvey d0116a48-7996-4cfa-9ec9-321f2d08f49d.z6nySgzTkkLItn1SWjsD9ihrUDsfh6fMX6qKLE/qZZI=\",\"x-kinvey-client-app-version\":\"0.1.2\"}",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-Username",
+						"value": "austin",
+						"description": ""
+					},
+					{
+						"key": "X-Kinvey-User-Id",
+						"value": "58e28d23cf5435a0448590d2",
+						"description": ""
+					},
+					{
+						"key": "X-Auth-Key",
+						"value": "ugg1234",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"Foo2\":\"sudo2\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
