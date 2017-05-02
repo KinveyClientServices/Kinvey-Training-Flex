@@ -9,6 +9,7 @@ const echoCustomEndpoint = require("./functions/endpoints/echo.js");
 
 //TODO: Declare the Flex Service
 const service = sdk.service(function(err, flex) {
+	console.log("flex: " + JSON.stringify(flex.logger));
 	//TODO: Declare the 3 main flex components
 	const flexAuth = flex.auth;
 	const flexData = flex.data;
@@ -27,5 +28,6 @@ const service = sdk.service(function(err, flex) {
 
 	//TODO: Register handlers for custom endpoints
 	const brokenEndpoint = flexFunctions.register("broken", brokenCustomEndpoint.broken);
+	const brokenTimeoutEndpoint = flexFunctions.register("brokenTimeout", brokenCustomEndpoint.brokenTimeout);
 	const echoEndpoint = flexFunctions.register("echo", echoCustomEndpoint.echo);
 })
