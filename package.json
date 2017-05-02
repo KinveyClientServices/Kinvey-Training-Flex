@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "kinvey-flex-sdk": "~2.0.3",
-    "mysql": "~2.13.0"
+    "moment": "^2.18.1",
+    "mysql": "~2.13.0",
+    "randomstring": "^1.1.5"
   }
 }
