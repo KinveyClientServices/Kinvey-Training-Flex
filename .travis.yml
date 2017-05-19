@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+- '7'
+install:
+- npm install
+- npm install kinvey-cli
+before_deploy:
+- kinvey -e training-ci@kinvey.com -p abcd1234 deploy
+branch: feature/jenkins
