@@ -6,10 +6,12 @@
     "start": "node .",
     "dev": "nodemon --exec npm start",
     "deploy": "npm version --no-git-tag-version patch && kinvey deploy",
-    "status": "kinvey job && kinvey status"
+    "status": "kinvey job && kinvey status",
+    "test": "NODE_ENV=test && mocha test/*"
   },
   "dependencies": {
     "kinvey-flex-sdk": "~2.0.3",
+    "mocha": "^3.4.1",
     "moment": "^2.18.1",
     "mysql": "~2.13.0",
     "randomstring": "^1.1.5"
