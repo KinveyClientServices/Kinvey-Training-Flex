@@ -3,7 +3,7 @@ node_js:
 - '7'
 install:
 - npm install
-- npm install kinvey-cli
-before_deploy:
+- npm install -g kinvey-cli
+after_success:
 - kinvey -e training-ci@kinvey.com -p abcd1234 deploy
 branch: feature/jenkins
