@@ -9,6 +9,7 @@ const saveDataEndpoint = require("./functions/endpoints/savedata.js");
 const echoCustomEndpoint = require("./functions/endpoints/echo.js");
 
 //TODO: Declare the Flex Service
+//jenkins deploy test 1
 const service = sdk.service(function(err, flex) {
 	console.log("flex: " + JSON.stringify(flex.logger));
 	//TODO: Declare the 3 main flex components
