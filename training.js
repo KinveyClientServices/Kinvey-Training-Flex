@@ -1,5 +1,6 @@
 //TODO: include the Kinvey Flex SDK
 const sdk = require("kinvey-flex-sdk");
+const packageJson = require('./package.json');
 //TODO: Breakout specific logic out into its own folders and include here
 const auth = require("./auth/auth.js");
 const surveysIntegration = require("./data/surveys.js");
@@ -10,7 +11,8 @@ const echoCustomEndpoint = require("./functions/endpoints/echo.js");
 
 //TODO: Declare the Flex Service
 const service = sdk.service(function(err, flex) {
-	console.log("flex: " + JSON.stringify(flex.logger));
+	console.log("flex metadata: " + JSON.stringify(flex));
+	console.log("service version: " + packageJson.version);
 	//TODO: Declare the 3 main flex components
 	const flexAuth = flex.auth;
 	const flexData = flex.data;
