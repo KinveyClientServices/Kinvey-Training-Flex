@@ -4,6 +4,7 @@ const packageJson = require('./package.json');
 //TODO: Breakout specific logic out into its own folders and include here
 const auth = require("./auth/auth.js");
 const surveysIntegration = require("./data/surveys.js");
+const partnerIntegration = require("./data/partner.js");
 const surveysFunctions = require("./functions/collections/surveysFunctions.js");
 const brokenCustomEndpoint = require("./functions/endpoints/broken.js");
 const saveDataEndpoint = require("./functions/endpoints/savedata.js");
@@ -25,6 +26,11 @@ const service = sdk.service(function(err, flex) {
 	const surveys = flexData.serviceObject("Surveys");
 	//TODO: Register a handler for get all: GET /:serviceobject
 	surveys.onGetAll(surveysIntegration.getAll);
+
+	const partner = flexData.serviceObject("Partner");
+	partner.onGetAll(partnerIntegration.getAll);
+	const fullPartnerSP = flexData.serviceObject("FullPartnerSP");
+	fullPartnerSP.onGetAll(partnerIntegration.FullPartnerSP);
 
 	//TODO: Register a handler for a preFetch Business Logic hook
 	const surveysPreFetch = flexFunctions.register("surveysPreFetch", surveysFunctions.preFetch);
