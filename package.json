@@ -9,6 +9,7 @@
     "status": "kinvey job && kinvey status"
   },
   "dependencies": {
+    "bluebird": "^3.5.0",
     "kinvey-flex-sdk": "~2.0.3",
     "moment": "^2.18.1",
     "mssql": "^4.0.4",

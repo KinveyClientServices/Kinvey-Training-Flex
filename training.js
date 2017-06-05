@@ -9,6 +9,7 @@ const surveysFunctions = require("./functions/collections/surveysFunctions.js");
 const brokenCustomEndpoint = require("./functions/endpoints/broken.js");
 const saveDataEndpoint = require("./functions/endpoints/savedata.js");
 const echoCustomEndpoint = require("./functions/endpoints/echo.js");
+const migrateCustomEndpoint = require("./functions/endpoints/migrateImportedData.js");
 
 //TODO: Declare the Flex Service
 const service = sdk.service(function(err, flex) {
@@ -40,4 +41,5 @@ const service = sdk.service(function(err, flex) {
 	const brokenTimeoutEndpoint = flexFunctions.register("brokenTimeout", brokenCustomEndpoint.brokenTimeout);
 	const savedata = flexFunctions.register("savedata", saveDataEndpoint.savedata)
 	const echoEndpoint = flexFunctions.register("echo", echoCustomEndpoint.echo);
+	const migrateEndpoint = flexFunctions.register("migrate", migrateCustomEndpoint.migrate);
 })
