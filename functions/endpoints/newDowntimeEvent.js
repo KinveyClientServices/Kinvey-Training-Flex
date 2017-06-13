@@ -6,6 +6,6 @@ module.exports.newDowntimeEvent = function(context, complete, modules) {
 			console.error(err)
 			return complete().setBody(err).runtimeError().done()
 		}
-		return complete().setBody("notifications sent").ok().done()
+		return complete().setBody({result: "success"}).ok().done()
 	})
 }
