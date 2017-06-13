@@ -6,10 +6,9 @@ const auth = require("./auth/auth.js");
 const surveysIntegration = require("./data/surveys.js");
 const partnerIntegration = require("./data/partner.js");
 const surveysFunctions = require("./functions/collections/surveysFunctions.js");
-const brokenCustomEndpoint = require("./functions/endpoints/broken.js");
-const saveDataEndpoint = require("./functions/endpoints/savedata.js");
 const echoCustomEndpoint = require("./functions/endpoints/echo.js");
 const migrateCustomEndpoint = require("./functions/endpoints/migrateImportedData.js");
+const newDowntimeEventCustomEndpoint = require("./functions/endpoints/newDowntimeEvent.js");
 
 //TODO: Declare the Flex Service
 const service = sdk.service(function(err, flex) {
@@ -30,6 +29,7 @@ const service = sdk.service(function(err, flex) {
 
 	const partner = flexData.serviceObject("Partner");
 	partner.onGetAll(partnerIntegration.getAll);
+	partner.onGetById(partnerIntegration.getById);
 	const fullPartnerSP = flexData.serviceObject("FullPartnerSP");
 	fullPartnerSP.onGetAll(partnerIntegration.FullPartnerSP);
 
@@ -37,9 +37,7 @@ const service = sdk.service(function(err, flex) {
 	const surveysPreFetch = flexFunctions.register("surveysPreFetch", surveysFunctions.preFetch);
 
 	//TODO: Register handlers for custom endpoints
-	const brokenEndpoint = flexFunctions.register("broken", brokenCustomEndpoint.broken);
-	const brokenTimeoutEndpoint = flexFunctions.register("brokenTimeout", brokenCustomEndpoint.brokenTimeout);
-	const savedata = flexFunctions.register("savedata", saveDataEndpoint.savedata)
-	const echoEndpoint = flexFunctions.register("echo", echoCustomEndpoint.echo);
-	const migrateEndpoint = flexFunctions.register("migrate", migrateCustomEndpoint.migrate);
+	flexFunctions.register("echo", echoCustomEndpoint.echo);
+	flexFunctions.register("migrate", migrateCustomEndpoint.migrate);
+	flexFunctions.register("newDowntimeEvent", newDowntimeEventCustomEndpoint.newDowntimeEvent);
 })

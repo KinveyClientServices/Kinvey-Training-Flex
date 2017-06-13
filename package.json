@@ -1,6 +1,6 @@
 {
   "name": "compressor-integration",
-  "version": "0.0.12",
+  "version": "0.0.17",
   "private": true,
   "scripts": {
     "start": "node .",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "bluebird": "^3.5.0",
-    "kinvey-flex-sdk": "~2.0.3",
+    "kinvey-flex-sdk": "~2.0.4",
     "moment": "^2.18.1",
     "mssql": "^4.0.4",
     "mysql": "~2.13.0",
