@@ -48,6 +48,9 @@ module.exports.migrate = function(context, complete, modules) {
         entity.start_time = moment(timeSplits[0]).add(timeSplits[1], "hours").add(timeSplits[2], "minutes")
         timeSplits = entity.end_time.split(/ |:/)
         entity.end_time = moment(timeSplits[0]).add(timeSplits[1], "hours").add(timeSplits[2], "minutes")
+        //last_recalculated
+        timeSplits = entity.last_recalculated.split(/ |:/)
+        entity.last_recalculated = moment(timeSplits[0]).add(timeSplits[1], "hours").add(timeSplits[2], "minutes")
         //downtime_code_name
         entity.downtime_code_name = uxDowntimeCodeNames[getRandomInt(0, 5)]
         //mechanic_name
