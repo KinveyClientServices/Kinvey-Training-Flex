@@ -6,17 +6,19 @@ module.exports.migrate = function(context, complete, modules) {
   const collectionName = context.body.collection
 
   const options = {
-    useBl: false,
+    useBl: true,
     useUserContext: true
   }
   const dataStore = modules.dataStore(options)
-  const targetCollection = dataStore.collection(collectionName)
+  //past events requires master secret to override read only
+  const targetCollection = (collectionName == "PastEvents") ? modules.dataStore().collection(collectionName) : dataStore.collection(collectionName)
   const importCollection = dataStore.collection("imported")
   Promise.promisifyAll(targetCollection)
   Promise.promisifyAll(importCollection)
 
   const uxDowntimeCodeNames = [ "MSD", "CAT Panel SD", "Low STG 2 Discharge Press", "Low Engine Oil Level", "High STG 3 Discharge Press"]
   const uxCompressorNames = ["Pembrook X-1 Unit 1", "Rocker B1 - 102 Unit 1 (2704)", "XBC Giddings Estate"]
+  const uxMechanicNames = ["James Hoshor", "Florian Saurs", "Sergio Martinez", "Spurti Gurram"]
   const knownCompressorNames = {
     "32116":"DL Hutt C 38-11 Unit 1",
     "32131":"ET O Daniel 37-3 Unit 2",
@@ -48,8 +50,11 @@ module.exports.migrate = function(context, complete, modules) {
         entity.end_time = moment(timeSplits[0]).add(timeSplits[1], "hours").add(timeSplits[2], "minutes")
         //downtime_code_name
         entity.downtime_code_name = uxDowntimeCodeNames[getRandomInt(0, 5)]
+        //mechanic_name
+        entity.mechanic_name = uxMechanicNames[getRandomInt(0,4)]
         //resolved
         if(collectionName == "PastEvents") {
+          entity.last_saved_by = "Patrick Lawrence"
           entity.resolved = true
         }
       }
