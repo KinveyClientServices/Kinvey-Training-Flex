@@ -7,7 +7,6 @@ const surveysIntegration = require("./data/surveys.js");
 const partnerIntegration = require("./data/partner.js");
 const surveysFunctions = require("./functions/collections/surveysFunctions.js");
 const currentEventsFunctions = require("./functions/collections/currentEventsFunctions.js");
-const pastEventsFunctions = require("./functions/collections/pastEventsFunctions.js");
 const echoCustomEndpoint = require("./functions/endpoints/echo.js");
 const migrateCustomEndpoint = require("./functions/endpoints/migrateImportedData.js");
 const newDowntimeEventCustomEndpoint = require("./functions/endpoints/newDowntimeEvent.js");
@@ -38,7 +37,7 @@ const service = sdk.service(function(err, flex) {
 	//TODO: Register a handler for a preFetch Business Logic hook
 	flexFunctions.register("surveysPreFetch", surveysFunctions.preFetch);
 	flexFunctions.register("currentEventsPostFetch", currentEventsFunctions.postFetch);
-	flexFunctions.register("pastEventsPostFetch", pastEventsFunctions.postFetch);
+	flexFunctions.register("currentEventsPreSave", currentEventsFunctions.preSave);
 
 	//TODO: Register handlers for custom endpoints
 	flexFunctions.register("echo", echoCustomEndpoint.echo);

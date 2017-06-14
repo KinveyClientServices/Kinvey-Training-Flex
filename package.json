@@ -1,6 +1,6 @@
 {
   "name": "compressor-integration",
-  "version": "0.0.19",
+  "version": "0.0.25",
   "private": true,
   "scripts": {
     "start": "node .",

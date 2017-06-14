@@ -15,6 +15,7 @@ module.exports.migrate = function(context, complete, modules) {
   Promise.promisifyAll(targetCollection)
   Promise.promisifyAll(importCollection)
 
+  const uxDowntimeCodeNames = [ "MSD", "CAT Panel SD", "Low STG 2 Discharge Press", "Low Engine Oil Level", "High STG 3 Discharge Press"]
   const uxCompressorNames = ["Pembrook X-1 Unit 1", "Rocker B1 - 102 Unit 1 (2704)", "XBC Giddings Estate"]
   const knownCompressorNames = {
     "32116":"DL Hutt C 38-11 Unit 1",
@@ -23,8 +24,12 @@ module.exports.migrate = function(context, complete, modules) {
     "32166":"Texas Ten Y 39-40 Unit 2"
   }
 
+  const query = new modules.Query();
+  if(collectionName == "CurrentEvents") {
+    query.limit = 10
+  }
 
-  importCollection.findAsync().then(function(results) {
+  importCollection.findAsync(query).then(function(results) {
     var promises = []
     results.forEach(function(entity) {
       if(collectionName == "CurrentEvents" || collectionName == "PastEvents") {
@@ -41,6 +46,12 @@ module.exports.migrate = function(context, complete, modules) {
         entity.start_time = moment(timeSplits[0]).add(timeSplits[1], "hours").add(timeSplits[2], "minutes")
         timeSplits = entity.end_time.split(/ |:/)
         entity.end_time = moment(timeSplits[0]).add(timeSplits[1], "hours").add(timeSplits[2], "minutes")
+        //downtime_code_name
+        entity.downtime_code_name = uxDowntimeCodeNames[getRandomInt(0, 5)]
+        //resolved
+        if(collectionName == "PastEvents") {
+          entity.resolved = true
+        }
       }
 
       promises.push(targetCollection.saveAsync(entity))
