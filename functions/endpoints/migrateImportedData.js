@@ -1,4 +1,3 @@
-const Promise = require('bluebird')
 const moment = require('moment')
 
 module.exports.migrate = function(context, complete, modules) {

@@ -5,11 +5,13 @@ const packageJson = require('./package.json');
 const auth = require("./auth/auth.js");
 const surveysIntegration = require("./data/surveys.js");
 const partnerIntegration = require("./data/partner.js");
+const downtimeEventIntegration = require("./data/currentEvents.js")
 const surveysFunctions = require("./functions/collections/surveysFunctions.js");
 const currentEventsFunctions = require("./functions/collections/currentEventsFunctions.js");
 const echoCustomEndpoint = require("./functions/endpoints/echo.js");
 const migrateCustomEndpoint = require("./functions/endpoints/migrateImportedData.js");
 const newDowntimeEventCustomEndpoint = require("./functions/endpoints/newDowntimeEvent.js");
+const refreshHistoricalDowntimeEventsCustomEndpoint = require("./functions/endpoints/refreshHistoricalDowntimeEvents.js");
 
 //TODO: Declare the Flex Service
 const service = sdk.service(function(err, flex) {
@@ -34,6 +36,9 @@ const service = sdk.service(function(err, flex) {
 	const fullPartnerSP = flexData.serviceObject("FullPartnerSP");
 	fullPartnerSP.onGetAll(partnerIntegration.FullPartnerSP);
 
+	const events = flexData.serviceObject("CurrentEvents")
+	events.onGetAll(downtimeEventIntegration.getAll)
+
 	//TODO: Register a handler for a preFetch Business Logic hook
 	flexFunctions.register("surveysPreFetch", surveysFunctions.preFetch);
 	flexFunctions.register("currentEventsPostFetch", currentEventsFunctions.postFetch);
@@ -43,4 +48,5 @@ const service = sdk.service(function(err, flex) {
 	flexFunctions.register("echo", echoCustomEndpoint.echo);
 	flexFunctions.register("migrate", migrateCustomEndpoint.migrate);
 	flexFunctions.register("newDowntimeEvent", newDowntimeEventCustomEndpoint.newDowntimeEvent);
+	flexFunctions.register("refreshHistoricalDowntimeEvents", refreshHistoricalDowntimeEventsCustomEndpoint.refreshHistoricalDowntimeEvents);
 })
