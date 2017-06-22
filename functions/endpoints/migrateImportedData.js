@@ -19,6 +19,8 @@ module.exports.migrate = function(context, complete, modules) {
   const uxDowntimeCodeNames = [ "MSD", "CAT Panel SD", "Low STG 2 Discharge Press", "Low Engine Oil Level", "High STG 3 Discharge Press"]
   const uxCompressorNames = ["Pembrook X-1 Unit 1", "Rocker B1 - 102 Unit 1 (2704)", "XBC Giddings Estate"]
   const uxMechanicNames = ["James Hoshor", "Florian Saurs", "Sergio Martinez", "Spurti Gurram"]
+  const uxSystemCodes = ["01 Compressor Skid", "02 Suction Skid", "03 Discharge Skid", "04 Fuel Gas System", "05 Dowsntream Infrastructure", "06 Upstream - Battery", "07 Construction", "08 Wells Not In Service", "09 Other"]
+  const uxEquipmentCodes = ["01 Dump Line", "02 Dump Valve", "03 Recycle Valve", "04 Instrumentation", "05 Scrubber Level", "06 Other"]
   const knownCompressorNames = {
     "32116":"DL Hutt C 38-11 Unit 1",
     "32131":"ET O Daniel 37-3 Unit 2",
@@ -55,6 +57,10 @@ module.exports.migrate = function(context, complete, modules) {
         entity.downtime_code_name = uxDowntimeCodeNames[getRandomInt(0, 5)]
         //mechanic_name
         entity.mechanic_name = uxMechanicNames[getRandomInt(0,4)]
+        //equip_code
+        entity.equip_code = uxEquipmentCodes[getRandomInt(0,6)]
+        //system_code
+        entity.system_code = uxSystemCodes[getRandomInt(0,9)]
         //resolved
         if(collectionName == "PastEvents") {
           entity.last_saved_by = "Patrick Lawrence"

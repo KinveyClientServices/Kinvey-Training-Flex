@@ -32,6 +32,10 @@ module.exports.preSave = function(context, complete, modules) {
 				console.log("saved event as past event _id: " + context.entityId)
 				const currentEvents = modules.dataStore().collection('CurrentEvents')
 				currentEvents.removeById(context.entityId, (err, result) => {
+					if(err && err.description == "This entity not found in the collection") {
+						console.log("No current event to delete remains")
+						return complete().ok().done()
+					}
 					if(err) {
 						console.error(err)
 						return complete().setBody(err).runtimeError().done()
