@@ -1,6 +1,6 @@
 {
   "name": "training-flex",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "private": true,
   "scripts": {
     "start": "node .",
@@ -9,9 +9,11 @@
     "status": "kinvey job && kinvey status"
   },
   "dependencies": {
+    "bluebird": "^3.5.0",
     "kinvey-flex-sdk": "~2.0.3",
     "moment": "^2.18.1",
     "mysql": "~2.13.0",
+    "pg": "^6.4.1",
     "randomstring": "^1.1.5"
   }
 }
