@@ -9,7 +9,7 @@
     "status": "kinvey job && kinvey status"
   },
   "dependencies": {
-    "kinvey-flex-sdk": "~2.0.3",
+    "kinvey-flex-sdk": "^2.0.4",
     "moment": "^2.18.1",
     "mysql": "~2.13.0",
     "randomstring": "^1.1.5"
