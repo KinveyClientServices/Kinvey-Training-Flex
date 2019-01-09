@@ -1,0 +1,35 @@
+{
+  "name": "kinvey-training-flex",
+  "version": "0.0.1",
+  "description": "Flex Training Application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon --exec npm start",
+    "deploy": "npm version --no-git-tag-version patch && kinvey flex deploy",
+    "status": "kinvey flex job && kinvey flex status"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ronheiney@github.com/KinveyClientServices/Kinvey-Training-Flex.git"
+  },
+  "keywords": [
+    "flex",
+    "node"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KinveyClientServices/Kinvey-Training-Flex/issues"
+  },
+  "homepage": "https://github.com/KinveyClientServices/Kinvey-Training-Flex#readme",
+  "dependencies": {
+    "kinvey-flex-sdk": "^3.2.1",
+    "node-rest-client": "^3.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
