@@ -1,4 +1,4 @@
- Kinvey FlexServices Examples
+ Kinvey FlexServices Training
 
 [FlexServices](https://devcenter.kinvey.com/html5/guides/flex-services) are microservices that can be used for data integrations or business logic within the [Kinvey mBaas](https://www.kinvey.com/). There are three types of FlexServices:
 
@@ -22,6 +22,6 @@ node .
 
 ## Deploying the Flex Services to the cloud
 
-To use each service, you'll have to add a new service within the service catalog on your Kinvey console. You'll also need the [Kinvey CLI](https://www.npmjs.com/package/kinvey-cli).
+To use each service, you'll have to add a new service within the service catalog on your Kinvey console. 
 
- Assuming you have already authenticated within the Kinvey CLI, you can run `kinvey flex init` to configure the service to connect it to the service that you created in the console (the CLI will walk you through the steps). Once this is complete, you can use `kinvey flex deploy` to deploy the service to the Kinvey Flex runtime (you could run them as External Flex as well - see the [FlexService Runtime guide](https://devcenter.kinvey.com/rest/guides/flexservice-runtime) for more details).
+ Assuming you have already authenticated within the Kinvey CLI, you can run `kinvey flex init` to configure the service to connect it to the service that you created in the console (the CLI will walk you through the steps). Once this is complete, you can use `kinvey flex deploy` to deploy the service to the Kinvey Flex runtime.
