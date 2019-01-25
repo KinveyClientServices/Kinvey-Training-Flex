@@ -33,5 +33,5 @@ sdk.service((err, flex) => {
   // Define Service Objects
   const rss = data.serviceObject('rss');
 
-  rss.onGetByQuery(handlers.getRssData);
+  rss.onGetAll(handlers.getRssData);
 });
