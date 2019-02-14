@@ -7,21 +7,29 @@
 * **FlexFunctions** for business logic (along the lines of what is often called _serverless_). These can be used as custom endpoints, which can be called directly via REST or the Kinvey SDK, or can be added as business logic during the [collection hook pipeline](https://devcenter.kinvey.com/html5/reference/business-logic/reference.html#CollectionHookPipeline).
 
 
-To use this Flex service, clone this GitHub repository, and install the associated dependencies:
 
-```npm install```
+Assuming you have Node.js installed, the first thing we need to do to work with FlexServices is to install the Kinvey CLI. This can be installed globally via npm.
 
 ```npm install -g kinvey-cli```
+You can see the full list of Kinvey CLI commands by entering:
 
-## Using the Flex Services locally
+```kinvey flex -h```
+
+Creating a New Project
+FlexServices are all built using JavaScript and Node.js. Here are the steps to start a new project:
+
+Initialize the project using npm.
+
+```npm init```
+This asks a series of questions before generating the package.json—the defaults are fine, but feel free to put whatever you like or run npm init -y in order to use the defaults without being prompted.
+
+Install the latest version of the Flex SDK and add it to your package.json with the --save modifier.
+
+```npm install kinvey-flex-sdk --save```
+
+Create the index.js file—this will be the entry point to your FlexService. Add the following code:
 
 ```
-ngrok http 10001
-node .
+const sdk = require('kinvey-flex-sdk');
+sdk.service((err, flex) => { });
 ```
-
-## Deploying the Flex Services to the cloud
-
-To use each service, you'll have to add a new service within the service catalog on your Kinvey console. 
-
- Assuming you have already authenticated within the Kinvey CLI, you can run `kinvey flex init` to configure the service to connect it to the service that you created in the console (the CLI will walk you through the steps). Once this is complete, you can use `kinvey flex deploy` to deploy the service to the Kinvey Flex runtime.
