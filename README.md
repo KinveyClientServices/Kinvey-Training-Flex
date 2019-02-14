@@ -21,6 +21,7 @@ FlexServices are all built using JavaScript and Node.js. Here are the steps to s
 Initialize the project using npm.
 
 ```npm init```
+
 This asks a series of questions before generating the package.json—the defaults are fine, but feel free to put whatever you like or run npm init -y in order to use the defaults without being prompted.
 
 Install the latest version of the Flex SDK and add it to your package.json with the --save modifier.
@@ -33,3 +34,21 @@ Create the index.js file—this will be the entry point to your FlexService. Add
 const sdk = require('kinvey-flex-sdk');
 sdk.service((err, flex) => { });
 ```
+
+Write a function. Let's start simple. This function just sends back what was entered in the request body.
+
+```
+const sdk = require("kinvey-flex-sdk");
+
+sdk.service((err, flex) => {
+
+    const functions = flex.functions;
+
+    //Register the function.
+    functions.register("echo", echoFunction);
+    
+    function echoFunction(context, complete, modules) {
+        console.log("echo context: " + JSON.stringify(context));
+        return complete().setBody(context.body).ok().next();
+    }
+});
