@@ -21,3 +21,5 @@ $ kinvey flex init
 
 $ kinvey flex deploy
 ```
+## Creating custom endpoint
+![Screenshot](endpoint.png)
