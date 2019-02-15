@@ -21,3 +21,6 @@ $ kinvey flex init
 
 $ kinvey flex deploy
 ```
+
+## Create Collection Hook
+![Screenshot](collectionHook.png)
