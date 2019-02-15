@@ -21,3 +21,5 @@ $ kinvey flex init
 
 $ kinvey flex deploy
 ```
+## Add Flex Service to Collection
+![Screenshot](collection.png)
