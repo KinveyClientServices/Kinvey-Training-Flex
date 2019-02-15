@@ -1,17 +1,11 @@
  Kinvey FlexServices Training
 
-[FlexServices](https://devcenter.kinvey.com/html5/guides/flex-services) are microservices that can be used for data integrations or business logic within the [Kinvey mBaas](https://www.kinvey.com/). There are three types of FlexServices:
+Deploying a FlexService
+Now that we know our FlexService works, let's deploy it.
 
-* **FlexData** for data integrations.
-* **FlexAuth** for authentication integrations.
-* **FlexFunctions** for business logic (along the lines of what is often called _serverless_). These can be used as custom endpoints, which can be called directly via REST or the Kinvey SDK, or can be added as business logic during the [collection hook pipeline](https://devcenter.kinvey.com/html5/reference/business-logic/reference.html#CollectionHookPipeline).
+In the Kinvey Console, choose the "Service Catalog" tab at the top of the page and then click the "Add a Service" button on the right hand side of the page.
 
-
-To use this Flex service, clone this GitHub repository, and install the associated dependencies:
-
-```npm install```
-
-```npm install -g kinvey-cli```
+https://console.kinvey.com
 
 ## Using the Flex Services locally
 
