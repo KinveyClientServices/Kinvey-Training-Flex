@@ -21,10 +21,3 @@ $ kinvey flex init
 
 $ kinvey flex deploy
 ```
-
-## Using the Flex Services locally
-
-```
-ngrok http 10001
-node .
-```
